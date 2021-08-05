@@ -1,3 +1,5 @@
+# 杂项
+```
 cd "C:\file"
 # 切换路径
 
@@ -67,13 +69,7 @@ gen varname= varname[_n+1]
 
 encode date, gen(date_)
 # 自动设置值标签
-
-
-
-
-
-
-
+```
 # 多元插值
 ```
 mi set mlong
