@@ -1,5 +1,7 @@
 # 杂项
+
 ## io
+
 ```
 cd "C:\file"
 use "data.dta", clear
@@ -11,19 +13,25 @@ graph export "graph.png", replace as(png)
 ```
 
 ## 在不更改数据的情况下进行操作
+
 ```
 preserve
 ...
 restore
 ```
-# 统计描述
+
+## 统计描述
+
 ```
 summarize y, detail
 tabstat t, statistic(mean sd)
 tab x1 x2
 tab1 x1 x2
 ```
-# 循环
+
+## 循环
+
+```
 foreach v in x y z{
     ......
 }
@@ -33,41 +41,92 @@ foreach v of varlist varlist{
 forvalues i = 1/5{
     ......
 }
-# 分组与排序
+```
+
+## 分组与排序
+
 ```
 egen cat = group(x1 x2)
 sort variable
 bysort var1 (var2): ......
 ```
-# 分位数
+
+## 分位数
+
 ```
 egen cutpoint50 = pctile(mv), p(50)
 ```
-# 数据reshape
+
+## 数据reshape
+
 ```
 reshape wide score, i(class) j(student) 
 reshape long score, i(class) j(student) 
 ```
-# 分组统计与分组求和
+
+## 分组统计与分组求和
+
 ```
 bysort id: egen num = sum(x == "A")
 bysort id: egen sum = sum(x)
 ```
-# 手动导入数据
+
+## 手动导入数据
+
 ```
 input Id str1 cons1 str1 cons2 str1 cons3 str1 cons4
 1 A A B C
 2 A A A A
 end
 ```
-# local and global
+
+## Macro - 暂元
+
+**常见用法：**
+
+* 定义变量列表
+* counter
+
+### 局部暂元的定义与引用
+
 ```
-local a = 1
-display `i'
-global varlist x1 x2 x3 x4
-reg y $varlist
+local number 1
+di `number'
+local letter a b c
+di "`letter'"
 ```
 
+### 两种引用方式的区别
+
+```
+local number 2+2
+di `number'
+> 4
+di "`number'"
+> 2+2
+```
+
+### 局部暂元与全局暂元
+
+```
+global num 1
+local num 2
+macro list
+> num: 1
+> _num: 2
+```
+
+### 操作暂元
+
+```
+macro list
+macro drop
+```
+
+
+global varlist x1 x2 x3 x4
+
+```
 duplicates drop x1 x2 x3 x4, force
 # 删除重复项
 
