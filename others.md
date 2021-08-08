@@ -124,9 +124,12 @@ esttab, compress nogap b(%6.3f) scalars(r2 N) star(* 0.1 ** 0.05 *** 0.01)  titl
 gen varname= varname[_n+1]
 ```
 
-## 自动设置值标签
+## 值标签相关
 
 ```
-encode date, gen(date_)
+encode sex, gen(gender)
+# 通过字符串变量，设置新的以该变量为值标签的数值变量
+decode gender, gen(sex)
+# 将某个变量的值标签生成为一个新的变量
 ```
 
