@@ -88,13 +88,16 @@ end
 * counter
 
 ### 局部暂元的定义与引用
+
 ```
 local number 1
 di `number'
 local letter a b c
 di "`letter'"
 ```
+
 ### 两种引用方式的区别
+
 ```
 local number 2+2
 di `number'
@@ -102,7 +105,9 @@ di `number'
 di "`number'"
 > 2+2
 ```
+
 ### 局部暂元与全局暂元
+
 ```
 global num 1
 local num 2
@@ -110,7 +115,9 @@ macro list
 > num: 1
 > _num: 2
 ```
+
 ### 操作暂元
+
 ```
 macro list
 macro drop
@@ -128,10 +135,13 @@ duplicates drop x1 x2 x3 x4, force
 recode x (-3/-2 = .)(-1 = .)
 ```
 
-## esttab - 回归结果导出
+## estimation
 
 ```
-est store A
+est save/use
+est store/restore
+est dir
+est drop/clear
 esttab, compress nogap b(%6.3f) scalars(r2 N) star(* 0.1 ** 0.05 *** 0.01)  title("")
 ```
 
