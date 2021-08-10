@@ -1,5 +1,7 @@
 # 杂项
+
 ## io
+
 ```
 cd "C:\file"
 use "data.dta", clear
@@ -10,20 +12,25 @@ graph save "graph.gph", replace
 graph export "graph.png", replace as(png)
 ```
 
-## 在不更改数据的情况下进行操作
+## preserve
+
 ```
 preserve
 ...
 restore
 ```
+
 ## 统计描述
+
 ```
 summarize y, detail
 tabstat t, statistic(mean sd)
 tab x1 x2
 tab1 x1 x2
 ```
+
 ## 循环
+
 ```
 foreach v in x y z{
     ......
@@ -37,32 +44,42 @@ forvalues i = 1/5{
 ```
 
 ## 分组与排序
+
 ```
 egen cat = group(x1 x2)
 sort variable
 bysort var1 (var2): ......
 ```
+
 ## 分位数
+
 ```
 egen cutpoint50 = pctile(mv), p(50)
 ```
+
 ## 数据reshape
+
 ```
 reshape wide score, i(class) j(student) 
 reshape long score, i(class) j(student) 
 ```
+
 ## 分组统计与分组求和
+
 ```
 bysort id: egen num = sum(x == "A")
 bysort id: egen sum = sum(x)
 ```
+
 ## 手动导入数据
+
 ```
 input Id str1 cons1 str1 cons2 str1 cons3 str1 cons4
 1 A A B C
 2 A A A A
 end
 ```
+
 ## Macro - 暂元
 
 **常见用法：**
