@@ -160,3 +160,24 @@ decode gender, gen(sex)
 # 将某个变量的值标签生成为一个新的变量
 ```
 
+## 多行代码
+```
+#delimit 
+...
+...;
+#delimit cr
+```
+
+## 画图
+```
+#delimit 
+twoway 
+(line num_daily_0 date_, lcolor(black) lwidth(medthick) lpattern(solid))
+(line sku_daily_0 date_, yaxis(2) lcolor(black) lwidth(medthick) lpattern(dash)), 
+ytitle(Merchants) ytitle(Sku, axis(2)) xtitle(Date) title(日预告中店铺数与Sku趋势)
+xlabel(1(3)22, valuelabel)
+legend(on rows(2) position(6) ring(0) order(1 "Merchants" 2 "Sku"))
+graphregion(fcolor(white) lcolor(white) ifcolor(white) ilcolor(white)) 
+plotregion(fcolor(white) lcolor(white) ifcolor(white) ilcolor(white));                                 
+#delimit cr
+```
