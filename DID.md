@@ -40,5 +40,6 @@ xtreg depvar control_vars treat#cat#post treat#cat treat#post cat#post i.time, f
 
 ## reference
 [Difference-in-difference-in-differences panel data](https://stats.stackexchange.com/questions/214562/difference-in-difference-in-differences-panel-data)
+
 [Difference-in-Differences Estimation](https://www.nber.org/sites/default/files/2021-03/lect_10_diffindiffs_0.pdf)
 
